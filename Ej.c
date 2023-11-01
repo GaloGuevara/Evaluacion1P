@@ -17,7 +17,17 @@ int main()
 
     printf("Ingrese un numero entero: ");
     scanf("%d%*c", &num);
-    printf("El numero ingresado es: %d\n", num);
+
+    int digito = 0, suma = 0;
+
+    while (num > 0)
+    {
+        digito = num % 10;
+        suma += digito;
+        num = num / 10;
+    }
+    
+    printf("La suma es: %d", suma);
 
     return 0;
 }
