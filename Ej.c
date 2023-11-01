@@ -18,16 +18,28 @@ int main()
     printf("Ingrese un numero entero: ");
     scanf("%d%*c", &num);
 
-    int digito = 0, suma = 0;
-
-    while (num > 0)
+    if (num < 0)
     {
-        digito = num % 10;
-        suma += digito;
-        num = num / 10;
+        num = -num;
     }
-    
-    printf("La suma es: %d", suma);
+
+    int digito = 0, suma = 10;
+
+    while (suma > 9)
+    {
+        suma = 0;
+        while (num > 0)
+        {
+            digito = num % 10;
+
+            suma += digito;
+
+            num = num / 10;
+        }
+        num = suma;
+    }
+
+    printf("La suma de todos los digitos hasta tener un unico numero entre 0 y 9 es: %d\n", suma);
 
     return 0;
 }
